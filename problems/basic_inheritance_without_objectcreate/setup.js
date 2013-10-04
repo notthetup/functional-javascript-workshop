@@ -23,7 +23,7 @@ module.exports = input()
 
   console.log("new BetterUser('alice', 21)")
   var alice = new BetterUser('alice', 21)
-  console.log(typeof joe.isUser == 'function' ? "Inherits from User" : "Doesn't inherit all from User"  )
+  console.log(typeof alice.isUser == 'function' ? "Inherits from User" : "Doesn't inherit all from User"  )
   console.log('')
 
   console.log("new BetterUser('joe', 20)")
