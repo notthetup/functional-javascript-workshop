@@ -9,6 +9,10 @@ module.exports = input()
     console.info('NEW USER: ' + this)
   }
 
+  User.prototype.isUser = function () {
+    return true;
+  }
+
   var BetterUser = extend(User)
 
   console.log('creating new BetterUsers:')
@@ -19,10 +23,12 @@ module.exports = input()
 
   console.log("new BetterUser('alice', 21)")
   var alice = new BetterUser('alice', 21)
+  console.log(typeof joe.isUser == 'function' ? "Inherits from User" : "Doesn't inherit all from User"  )
   console.log('')
 
   console.log("new BetterUser('joe', 20)")
   var joe = new BetterUser('joe', 20)
+  console.log(typeof joe.isUser == 'function' ? "Inherits from User" : "Doesn't inherit all from User"  )
   console.log('')
 
   Object.create = Object.prototype.create
