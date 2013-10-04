@@ -13,13 +13,17 @@ module.exports = input()
     return true;
   }
 
-  var BetterUser = extend(User)
-
-  console.log('creating new BetterUsers:')
+  var originalCreate = Object.create
 
   Object.create = function() {
     throw new Error('Do not use Object.create!')
   }
+
+  var BetterUser = extend(User)
+
+  Object.create = originalCreate
+
+  console.log('creating new BetterUsers:')
 
   console.log("new BetterUser('alice', 21)")
   var alice = new BetterUser('alice', 21)
@@ -31,5 +35,5 @@ module.exports = input()
   console.log(typeof joe.isUser == 'function' ? "Inherits from User" : "Doesn't inherit all from User"  )
   console.log('')
 
-  Object.create = Object.prototype.create
+  //Object.create = Object.prototype.create
 })
